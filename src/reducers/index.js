@@ -39,7 +39,7 @@ const reducer = (state, action) => {
         case(CLEAR_DISPLAY):
             return ({
                 ...state,
-                total: 0
+                total: 99, memory: 0,
             })
         case(MEMORY_ADD):
             return ({

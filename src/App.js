@@ -21,7 +21,7 @@ function App() {
     dispatch(applyNumber(number))
   }
   const handleClearDisplay = () => {
-    dispatch(clearDisplay)
+    dispatch(clearDisplay())
   }
   const handleMemoryAdd = () => {
     dispatch(memoryAdd());
@@ -43,16 +43,16 @@ function App() {
         <div className="col-md-12 d-flex justify-content-center">
           <form name="Cal">
             
-            <TotalDisplay value={0}/>
+            <TotalDisplay value={state.total}/>
             <div className="row details">
-              <span id="operation"><b>Operation:</b> X</span>
-              <span id="memory"><b>Memory:</b> 0</span>
+              <span id="operation"><b>Operation:</b> {state.operation}</span>
+              <span id="memory"><b>Memory:</b> {state.memory}</span>
             </div>
             
             <div className="row">
               <CalcButton value={"M+"} onClick = {handleMemoryAdd}/>
               <CalcButton value={"MR"} onClick = {handleMemoryRelease}/>
-              <CalcButton value={"MC"} />
+              <CalcButton value={"MC"} onClick = {handleMemoryClear}/>
             </div>
 
             <div className="row">
